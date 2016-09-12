@@ -3,5 +3,5 @@
 + [Quick R book - graphs] (http://www.statmethods.net/graphs/) good chapter about basic plotting in R
 + The source code for the R sessison can be found [here](https://github.com/DM-MGO-2016/lectures/blob/master/Graficos-Simples.R)
 + Gráficos de barra [Aqui] (https://github.com/DM-MGO-2016/lectures/blob/master/Gr%C3%A1ficos%20de%20barra.R)
-+ bla bla
++ Gráficos de lineas [Aqui] (https://github.com/DM-MGO-2016/lectures/blob/master/Grafico%20de%20lineas.R)
 + Pie charts - son los graficos de torta. [codigo fuente](https://github.com/DM-MGO-2016/lectures/blob/master/pie-charts.R)
