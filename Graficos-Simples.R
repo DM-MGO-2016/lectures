@@ -22,10 +22,11 @@ hist(mtcars$mpg, breaks=12, col="red")
 
 # Add a Normal Curve (Thanks to Peter Dalgaard)
 x <- mtcars$mpg 
-h<-hist(x, breaks=10, col="red", xlab="Millas por galon", 
+h<-hist(x, breaks=10, col="red", xlab="Millas por galon", ylab="Frecuencia",
         main="histograma con curva normal") 
 xfit<-seq(min(x),max(x),length=40) 
-yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
+xfit
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) #evaluamos la funcion gaussian en los 40 puntos creados
 
 yfit <- yfit*diff(h$mids[1:2])*length(x) 
 
@@ -44,21 +45,29 @@ polygon(x=d, col="red", border="black")
 # 4,6, or 8 cylinders
 library(sm)
 #install.packages("sm")
+
 attach(mtcars)
 
 # create value labels 
 cyl
 cyl.f <- factor(cyl, levels= c(4,6,8),
-                labels = c("4 cilindros", "6 cilindros", "8 cilindros")) 
+                labels = c("4 cyl", "6 cyl", "8 cyl")) 
+# plot densities
+# manual/automatic transmission versus performance
+sm.density.compare(mpg, am, xlab="Miles Per Gallon")
 
 # plot densities 
+# cyclinders vs performance
 sm.density.compare(mpg, cyl, xlab="Miles Per Gallon")
+
+
 title(main="MPG Distribution by Car Cylinders")
 
 # add legend via mouse click
 levels(cyl.f)
 
 colfill<-c(2:(2+length(levels(cyl.f)))) 
+colfill
 legend(locator(1), levels(cyl.f), fill=colfill)
 
 #### GRAFICOS de PUNTOS
@@ -70,6 +79,12 @@ dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,
 
 # Dotplot: Grouped Sorted and Colored
 # Sort by mpg, group and color by cylinder 
+
+order(mtcars$mpg) #ordenar por rendimiento
+mtcars[15,]
+min(mtcars$mpg)
+#encontramos el auto con mejor rendimiento! Cadillac Fleetwood
+
 x <- mtcars[order(mtcars$mpg),] # sort by mpg
 
 x$cyl <- factor(x$cyl) # it must be a factor
